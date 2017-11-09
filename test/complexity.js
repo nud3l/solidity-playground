@@ -1,10 +1,10 @@
-var Functional = artifacts.require("Functional");
+var Complexity = artifacts.require("Complexity");
 
-contract('Functional', function(accounts) {
+contract('Complexity', function(accounts) {
   it("Linear function", function() {
-    var a = 50;
+    var a = 10;
 
-    return Functional.deployed().then(function(instance) {
+    return Complexity.deployed().then(function(instance) {
       return instance.linear.call(a);
     }).then(function(b) {
       assert.equal(b.valueOf(), (a + 1), "Should be 10");
@@ -13,7 +13,7 @@ contract('Functional', function(accounts) {
   it("Quadratic function", function() {
     var a = 50;
 
-    return Functional.deployed().then(function(instance) {
+    return Complexity.deployed().then(function(instance) {
       return instance.quadratic.call(a);
     }).then(function(b) {
       assert.equal(b.valueOf(), (a + 1), "Should be 10");
@@ -22,7 +22,7 @@ contract('Functional', function(accounts) {
   it("Cubic function", function() {
     var a = 50;
 
-    return Functional.deployed().then(function(instance) {
+    return Complexity.deployed().then(function(instance) {
       return instance.cubic.call(a);
     }).then(function(b) {
       assert.equal(b.valueOf(), (a + 1), "Should be 10");

@@ -1,6 +1,6 @@
 pragma solidity ^0.4.17;
 
-contract Functional {
+contract Complexity {
   function linear(uint a) public pure returns (uint b){
     for (uint i = 0; i < a; i++) {
       b = 1;
