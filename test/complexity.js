@@ -1,29 +1,42 @@
 var Complexity = artifacts.require("Complexity");
+var a = 9;
 
 contract('Complexity', function(accounts) {
   it("Linear function", function() {
-    var a = 10;
-
+    var contract;
     return Complexity.deployed().then(function(instance) {
-      return instance.linear.call(a);
+      contract = instance;
+      return instance.linear.estimateGas(a);
+    }).then(function(gasUsed){
+      console.log("Gas used: " + gasUsed);
+    }).then(function(){
+      return contract.linear.call(a);
     }).then(function(b) {
       assert.equal(b.valueOf(), (a + 1), "Should be 10");
     });
   });
   it("Quadratic function", function() {
-    var a = 50;
-
+    var contract;
     return Complexity.deployed().then(function(instance) {
-      return instance.quadratic.call(a);
+      contract = instance;
+      return instance.quadratic.estimateGas(a);
+    }).then(function(gasUsed){
+      console.log("Gas used: " + gasUsed);
+    }).then(function(){
+      return contract.quadratic.call(a);
     }).then(function(b) {
       assert.equal(b.valueOf(), (a + 1), "Should be 10");
     });
   });
   it("Cubic function", function() {
-    var a = 50;
-
+    var contract;
     return Complexity.deployed().then(function(instance) {
-      return instance.cubic.call(a);
+      contract = instance;
+      return instance.cubic.estimateGas(a);
+    }).then(function(gasUsed){
+      console.log("Gas used: " + gasUsed);
+    }).then(function(){
+      return contract.cubic.call(a);
     }).then(function(b) {
       assert.equal(b.valueOf(), (a + 1), "Should be 10");
     });
